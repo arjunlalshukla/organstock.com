@@ -1,9 +1,11 @@
+#header_bloc {
+	background-color:#e5e8e8;
+	padding:8px;}
+
 #logo_bloc {
-	display:inline;
 	float:left;}
 
 #account_bloc {
-	display:inline;
 	float:right;}
 
 img.logo {
@@ -11,9 +13,9 @@ img.logo {
 	height:100px;
 	width:499px;}
 
-input[type="submit"] {
+button[type="button"] {
 	font-size:16pt;
 	height:30px;
-	width:90px;
+	width:100px;
 	margin-top:10px;
 	margin-bottom:5px;}

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="organstock.com/css/all.css">
-	<link rel="stylesheet" href="organstock.com/css/header.css">
+	<link rel="stylesheet" href="../css/all.css">
+	<link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
 	<div id="header_bloc">
 		<div id="logo_bloc">
-			<img class="logo" src="organstock.com/logo.png" alt="logo">
+			<a href="./index.php"><img class="logo" src="../logo.png" alt="logo"></a>
 		</div>
 		<div id="account_bloc">
-			<form action="organstock.com/php/sign_in.php" method="get">
-				<input type="submit" value="Sign In">
-			</form>
-			<form action="organstock.com/php/sign_up.php" method="get">
-				<input type="submit" value="Sign Up">
-			</form>
+			<?php
+				/* if (logged_in)*/{
+				}
+				/* else */ {
+					echo "<div><a href=\"./sign_in.php\"><button type=\"button\">Sign In</button></a></div>";
+					echo "<div><a href=\"./sign_up.php\"><button type=\"button\">Sign Up</button></a></div>";
+				}
+			?>
 		</div>
 	</div>
 </body>
