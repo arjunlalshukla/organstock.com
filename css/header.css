@@ -1,0 +1,19 @@
+#logo_bloc {
+	display:inline;
+	float:left;}
+
+#account_bloc {
+	display:inline;
+	float:right;}
+
+img.logo {
+	display:inline;
+	height:100px;
+	width:499px;}
+
+input[type="submit"] {
+	font-size:16pt;
+	height:30px;
+	width:90px;
+	margin-top:10px;
+	margin-bottom:5px;}
