@@ -7,7 +7,7 @@
 <body>
 	<div id="header_bloc">
 		<div id="logo_bloc">
-			<a href="./index.php"><img class="logo" src="../logo.png" alt="logo"></a>
+			<a href="/index.php"><img class="logo" src="../images/logo_white.png" alt="logo"></a>
 		</div>
 		<div id="account_bloc">
 			<?php

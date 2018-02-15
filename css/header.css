@@ -1,5 +1,7 @@
 #header_bloc {
 	background-color:#e5e8e8;
+	background-image: url("../images/ekg_pulse.png");
+	background-size: 90px 60px;
 	padding:8px;}
 
 #logo_bloc {
