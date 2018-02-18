@@ -1,6 +1,6 @@
 #header_bloc {
 	background-color:#e5e8e8;
-	background-image: url("../images/ekg_pulse.png");
+	background-image: url("../etc/ekg_pulse.png");
 	background-size: 90px 60px;
 	padding:8px;}
 
@@ -15,9 +15,11 @@ img.logo {
 	height:100px;
 	width:499px;}
 
-button[type="button"] {
+/*button[type="button"] {
 	font-size:16pt;
-	height:30px;
+	font-weight:bold;
+	border-radius:8px;
+	height:35px;
 	width:100px;
-	margin-top:10px;
-	margin-bottom:5px;}
+	margin-top:8px;
+	margin-bottom:5px;}*/

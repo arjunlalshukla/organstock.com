@@ -4,10 +4,14 @@ html {
 
 body {
 	margin:0px;
-/*	background-color:#e5e8e8;*/
-	background-color:#000000;
-	color:#e5e8e8;
+	background-color:#e5e8e8;
+/*	background-color:#000000;*/
+	color:#000000;
 	}
 
 div {
 	overflow:auto;}
+
+#organ {
+	height:150px;
+	weight:150px;}

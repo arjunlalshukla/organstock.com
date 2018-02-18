@@ -1,1 +1,42 @@
-.directory { }
+#directory { 
+	width:250px;
+	float:left;}
+
+#info {
+	float:left;}
+
+th {
+	vertical-align:top;
+	text-align:left;
+	padding:8px;}
+
+div > ul > a {
+	line-height:18pt;
+	color:#000000;}
+
+table {
+	margin:0;
+	padding:0;}
+
+table > ul {
+	padding:5px;
+	margin:0;
+	line-height:24pt;
+	list-style:none;}
+
+hr {
+	padding:0;
+	margin:0;
+	border-style:solid;
+	border-color:#e5e8e8;
+	border-width:1px;}
+
+#separator {
+	width:2px;
+	background-color:#e5e8e8;
+	padding:0;
+	margin:0;}
+
+#container {
+	margin:0 30px 30px 30px;
+}
