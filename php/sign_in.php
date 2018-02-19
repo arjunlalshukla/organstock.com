@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="/css/all.css">
 </head>
 <body>
-	<div id="container">
+	<div id="content">
 		<form action="handler.php" method="POST">
 			<div><input  placeholder="username" type="text" id="username" name="username"></div>
 			<div><input placeholder="password" type="password" id="passwprd" name="password"></div>
@@ -15,3 +15,4 @@
 	</div>
 </body>
 </html>
+<?php include("footer.php");?>

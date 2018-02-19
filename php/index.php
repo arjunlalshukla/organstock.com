@@ -8,7 +8,7 @@
 <?php include("header.php");?>
 <?php include("homerow.php");?>
 <body>
-<div id="container">
+<div id="content">
 	<table><tr>
 		<th>
 			<?php include("directory.php");?>
@@ -29,3 +29,4 @@
 </div>
 </body>
 </html>
+<?php include("footer.php");?>

@@ -9,11 +9,17 @@
 	</ul>
 	<ul id="right">
 		<?php 
-		if (false /*logged_in*/){
-			}	
-		else {
+//		if (logged_in){
+			$name = "Arjun";
+			echo "<li>Welcome, " . $name . "</li>";
+			echo "<li><a href=\"/php/account.php\">Your Account</a></li>";
+//			Will reload the current page with no account logged in.
+			echo "<li><a href=\"/index.php\">Sign Out</a></li>";
+//		}	
+//		else {
 			echo "<li><a href=\"/php/sign_in.php\">Sign In</a></li>";
-			echo "<li><a href=\"/php/sign_up.php\">Sign Up</a></li>";}
+			echo "<li><a href=\"/php/sign_up.php\">Sign Up</a></li>";
+//		}
 		?>
 	</ul>
 	</div>

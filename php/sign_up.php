@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="/css/sign_up.css">
 </head>
 <body>
-	<div id="container">
+	<div id="content">
 		<!-- This option will make more stuff appear depending on which
 			radio option is chosen. -->
 		<form action="handler.php" method=POST">
@@ -46,3 +46,4 @@
 	</div>
 </body>
 </html>
+<?php include("footer.php");?>
