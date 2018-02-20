@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href="/css/homerow.css">
@@ -12,7 +13,7 @@
 //		if (logged_in){
 			$name = "Arjun";
 			echo "<li>Welcome, " . $name . "</li>";
-			echo "<li><a href=\"/php/account.php\">Your Account</a></li>";
+			echo "<li><a href=\"/php/user.php\">Your Account</a></li>";
 //			Will reload the current page with no account logged in.
 			echo "<li><a href=\"/index.php\">Sign Out</a></li>";
 //		}	

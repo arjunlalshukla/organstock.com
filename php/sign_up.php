@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php include("small_header.php");?>
 <html>
 <head>

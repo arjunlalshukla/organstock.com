@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
+<?php include("header.php");?>
+<?php include("homerow.php");?>
 <head>
 	<title> Welcome!</title>
 	<link rel="stylesheet" href="/css/all.css">
 	<link rel="stylesheet" href="/css/info.css">
 </head>
-<?php include("header.php");?>
-<?php include("homerow.php");?>
 <body>
 <div id="content">
 	<table><tr>

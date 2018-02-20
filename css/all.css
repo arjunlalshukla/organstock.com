@@ -22,3 +22,8 @@ div {
 	text-align:center;
 	margin:10px 0px 10px 0px}
 
+a {
+	text-decoration:none;}
+
+label.organ {
+	width:120px;}

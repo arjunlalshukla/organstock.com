@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html>
+<?php include("header.php");?>
+<?php include("homerow.php");?>
 <head>
 	<title>Username</title>
 	<link rel="stylesheet" href="/css/all.css">
 </head>
-<?php include("header.php");?>
-<?php include("homerow.php");?>
-<body>
+<body><div id="content">
 	<h1>Username</h1>
 	<img id="profile" src="/etc/profile.png" alt="profile picture"><br>
 	<div><button type="button">Upload Photo</button></div><br>
@@ -56,8 +57,8 @@
 		<?php
 //			for each organ in organs
 				echo "<tr>";
-					echo "<td><img src=\"/etc/organ_id.png\" alt=\"organ pic\"></td>";
-					echo "<td><table>";
+					echo "<td><a href=\"/php/organ.php\"><div><img src=\"/etc/organ_id.png\" alt=\"organ pic\"></div></a></td>";
+					echo "<td><a href=\"/php/organ.php\"><div><table>";
 						echo "<tr><td><table><tr>";
 							echo "<td>Organ type</td>";
 							echo "<td>Blood Type: X</td>";
@@ -68,9 +69,11 @@
 						echo "<tr><td>";
 							echo "This is the description of the organ. It may be written by brokers for OrganStock or the seller themselves.";
 						echo "</td></tr>";
-					echo "</table></tr>";
+					echo "</table></div></a></tr>";
 				echo "</tr>";
 		?>
 	</table>
-</body>
+	<a href="/php/organ.php"><button type="button">New Organ</button></a>
+</div></body>
+</html>
 <?php include("footer.php");?>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href="/css/info.css">
@@ -12,4 +13,3 @@
 	</div>
 </body>
 </html>
-<?php include("footer.php");?>

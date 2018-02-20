@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html>
+<?php include("header.php");?>
+<?php include("homerow.php");?>
 <head>
 	<Title>Organ Type - ID#</title>
 	<link rel="stylesheet" href="/css/all.css">
 </head>
-<?php include("header.php");?>
-<?php include("homerow.php");?>
 <body><div id="content"><form action="handler.php" method="POST">
 	<h1>Organ Type - Seller - ID#</h1>
 	<img id="organ" src="/etc/lungs.jpg" alt="organ"><br>
