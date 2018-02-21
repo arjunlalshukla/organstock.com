@@ -32,6 +32,7 @@
 			</select><br>
 			State/Province: TBA<br>
 			Address:<br>
+			<input type="submit" value="Submit">
 		</div></form>
 		<!-- Physician form -->
 		Physician form<br>
@@ -43,6 +44,7 @@
 			Liscensing Agency: <select>
 			</select><br>
 			<input type="text" placeholder="License #" name="license"><br>
+			<input type="submit" value="Submit">
 		</div></form>
 	</div>
 </body>
