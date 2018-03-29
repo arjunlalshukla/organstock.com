@@ -14,13 +14,13 @@
 			Organ Type<br>
 			<input type="checkbox" name="organ_type" id="blood"><label for="blood" class="organ">Blood</label>
 	      <input type="checkbox" name="organ_type" id="cornea"><label for="cornea" class="organ">Cornea</label>
-	      <input type="checkbox" name="organ_type" id="intestine"><label for="intestine" class="organ">Intestine</label>
-	      <input type="checkbox" name="organ_type" id="kidney"><label for="kidney" class="organ">Kidney</label>
-	      <input type="checkbox" name="organ_type" id="liver"><label for="liver" class="organ">Liver</label><br>
+	      <input type="checkbox" name="organ_type" id="intestine"><label for="intestine" class="organ">Intestine</label><br>
 	      <input type="checkbox" name="organ_type" id="lung_both"><label for="lung_both" class="organ">Lungs (both)</label>
 	      <input type="checkbox" name="organ_type" id="lung_left"><label for="lung_left" class="organ">Lung (left)</label>
-	      <input type="checkbox" name="organ_type" id="lung_right"><label for="lung_right" class="organ">Lung (right)</label>
+	      <input type="checkbox" name="organ_type" id="lung_right"><label for="lung_right" class="organ">Lung (right)</label><br>
 	      <input type="checkbox" name="organ_type" id="pancreas"><label for="pancreas" class="organ">Pancreas</label>
+	      <input type="checkbox" name="organ_type" id="kidney"><label for="kidney" class="organ">Kidney</label>
+	      <input type="checkbox" name="organ_type" id="liver"><label for="liver" class="organ">Liver</label>
 		</div>
 		<br>
 		<div><table>

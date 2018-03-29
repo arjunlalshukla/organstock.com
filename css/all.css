@@ -26,4 +26,5 @@ a {
 	text-decoration:none;}
 
 label.organ {
-	width:120px;}
+	width:120px;
+	display: inline-block;}
