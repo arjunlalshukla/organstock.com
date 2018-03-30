@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS buyer_seller (
 	password VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	country VARCHAR(255) NOT NULL,
-	picture_path VARCHAR(511),
+	image_path VARCHAR(511) NOT NULL,
 	PRIMARY KEY (username)
 );
 
@@ -17,11 +17,11 @@ CREATE TABLE IF NOT EXISTS physician (
 	country VARCHAR(255) NOT NULL,
 	first_name VARCHAR(255) NOT NULL,
 	last_name VARCHAR(255) NOT NULL,
-	suffix VARCHAR(255),
-	degree VARCHAR(255),
+	suffix VARCHAR(255) NOT NULL,
+	degree VARCHAR(255) NOT NULL,
 	agency VARCHAR(255) NOT NULL,
 	license_num VARCHAR(255) NOT NULL,
-	picture_path VARCHAR(511),
+	image_path VARCHAR(511) NOT NULL,
 	PRIMARY KEY (username)
 );
 
@@ -32,8 +32,8 @@ CREATE TABLE IF NOT EXISTS organ (
 	blood_type VARCHAR(255) NOT NULL,
 	weight INTEGER UNSIGNED NOT NULL,
 	owner_dob DATE NOT NULL,
-	description TEXT,
-	picture_path VARCHAR(511),
+	description TEXT NOT NULL,
+	image_path VARCHAR(511) NOT NULL,
 
 	FOREIGN KEY (seller_username) REFERENCES buyer_seller (username)
 );
