@@ -8,9 +8,9 @@
 </head>
 <body>
 	<div id="content">
-		<form action="handler.php" method="POST">
+		<form action="sign_in_handler.php" method="POST">
 			<div><input  placeholder="username" type="text" id="username" name="username"></div>
-			<div><input placeholder="password" type="password" id="passwprd" name="password"></div>
+			<div><input placeholder="password" type="password" id="password" name="password"></div>
 			<div><input type="submit" value="Submit"></div>
 		</form>
 	</div>

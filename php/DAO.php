@@ -1,5 +1,5 @@
 <?php
-require_once 'KLogger.php';
+require_once('./KLogger.php');
 
 class DAO {
 
@@ -25,6 +25,14 @@ class DAO {
       $this->logger->logFatal("The database connection failed.");
     }
   }
+  
+  public function username_is_valid($username){
+     $conn = $this->getConnection();
+     $query = $conn->prepare("SELECT SELECT * FROM buyer_seller WHERE username = :username");
+     $query->bindParam(':username', $username);
+     $query->execute();
+     $result = query->fetchAll();
+     return empty($result);
 
   public function create_buyer_seller ($username, $password, $email, $country, $image_path) {
      $conn = $this->getConnection();
