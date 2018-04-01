@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 session_start();
-echo "poop";
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -20,7 +19,7 @@ $country = $_POST['country'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $suffix = $_POST['suffix'];
-$degree = $_POST['degree'];
+//$degree = $_POST['degree'];
 //$agency = $_POST['agency'];
 //$license = $_POST['license'];
 
@@ -91,7 +90,14 @@ if ($account_type == "physician"){
    }
    $dao->create_physician($username, $password, $email, $country, $first_name, $last_name, $suffix, "none", "none", "none", $image_path);
 } else if ($account_type == "buyer_seller"){
-   $dao->create_physician($username, $password, $email, $country, $first_name, $last_name, $suffix, "none", "none", "none", $image_path);
+    $image_path = "none";
+    if (isset($_FILE['file_to_upload'])){
+        $imagePath = "../images/profiles/$username" . "_" . $_FILES["fileToUpload"]["name"];
+        if (!move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $imagePath)) {
+            throw new Exception("File move failed");
+        }
+    }
+    $dao->create_buyer_seller($username, $password, $email, $country, $image_path);
 } else {
    $messages['account_type'] = "Account type must be either Buyer/Seller or Physician";
    $valid = false;
@@ -99,7 +105,7 @@ if ($account_type == "physician"){
 
 if (!$valid) {
    $_SESSION['messages'] = $messages;
-   header("Location: comments.php");
+   header("Location: sign_up.php");
    exit;
 }
 ?>
