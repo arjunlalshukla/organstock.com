@@ -29,52 +29,54 @@ $valid = true;
 $messages = array();
 
 if ($username == ""){
-   messages['username'] = "Enter a username";
+   $messages['username'] = "Enter a username";
    $valid = false;
+   echo "foo";
 } else if (preg_match("/\w{1,}/", $username) === 0){
-   messages['username'] = "All characters must be letter, number or underscore";
+   echo "bar";
+   $messages['username'] = "All characters must be letter, number or underscore";
    $valid = false;
 }else if (!$dao->username_is_valid($username)){
-   messages['username'] = "Username is already taken";
+   $messages['username'] = "Username is already taken";
    $valid = false;
 }
   
 if ($password == ""){
-   messages['password'] = "Enter a password";
+   $messages['password'] = "Enter a password";
    $valid = false;
 } else if (preg_match("/\w{1,}/", $password) === 0){
-   messages['password'] = "All characters must be letter, number or underscore";
+   $messages['password'] = "All characters must be letter, number or underscore";
    $valid = false;
 } else if ($password != $re_password){
-   messages['password'] = "Password inputs must match";
+   $messages['password'] = "Password inputs must match";
    $valid = false;
 }
 
 if ($email == ""){
-   messages['email'] = "Enter an email";
+   $messages['email'] = "Enter an email";
    $valid = false;
 } else if (preg_match("/\w{1,}@\w{1,}/", $email) === 0){
-   messages['password'] = "Email must contain '@'";
+   $messages['password'] = "Email must contain '@'";
    $valid = false;
 } else if ($password != $re_password){
-   messages['password'] = "Email inputs must match";
+   $messages['password'] = "Email inputs must match";
    $valid = false;
 }
 
 $file = file_get_contents("../etc/countries.dat");
 $file = explode("\n", trim($file));
 if (!in_array($country, $file)){
-   messages['country'] = "Country does not exist";
+   $messages['country'] = "Country does not exist";
    $valid = false;
 }
 
 if ($account_type == "physician"){
    if ($first_name == ""){
-      messages['first_name'] = "Enter a first name";
+      $messages['first_name'] = "Enter a first name";
       $valid = false;
    }
    if ($last_name == ""){
-      messages['last_name'] = "Enter a last_name";
+      $messages['last_name'] = "Enter a last_name";
       $valid = false;
    }
 }
@@ -91,7 +93,7 @@ if ($account_type == "physician"){
 } else if ($account_type == "buyer_seller"){
    $dao->create_physician($username, $password, $email, $country, $first_name, $last_name, $suffix, "none", "none", "none", $image_path);
 } else {
-   messages['account_type'] = "Account type must be either Buyer/Seller or Physician";
+   $messages['account_type'] = "Account type must be either Buyer/Seller or Physician";
    $valid = false;
 }
 

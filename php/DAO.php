@@ -31,9 +31,10 @@ class DAO {
      $query = $conn->prepare("SELECT SELECT * FROM buyer_seller WHERE username = :username");
      $query->bindParam(':username', $username);
      $query->execute();
-     $result = query->fetchAll();
+     $result = $query->fetchAll();
      return empty($result);
-
+  }
+     
   public function create_buyer_seller ($username, $password, $email, $country, $image_path) {
      $conn = $this->getConnection();
      $query = $conn->prepare("INSERT INTO buyer_seller (username, password, email, country, image_path) VALUES (:username, :password, :email, :country, :image_path)");

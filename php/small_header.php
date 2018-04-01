@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div>
-		<img src="/etc/logo_black.png" alt="logo"</img>
+		<img src="/etc/logo_black.png" alt="logo">
 	</div>
 <body>
 </html>
