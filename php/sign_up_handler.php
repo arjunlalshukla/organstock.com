@@ -7,6 +7,8 @@ error_reporting(E_ALL);
 require_once("./DAO.php");
 $dao = new DAO();
 
+echo $dao->username_is_valid("a");
+
 echo '<pre>' . print_r($_POST, 1) . '</pre>';
 
 $account_type = $_POST['account_type'];
@@ -23,7 +25,8 @@ $suffix = $_POST['suffix'];
 //$agency = $_POST['agency'];
 //$license = $_POST['license'];
 
-$_SESSION['presets'] = array($_POST);
+$_SESSION['presets'] = $_POST;
+echo '<pre>' . print_r($_SESSION['presets'], 1) . '</pre>';
 $valid = true;
 $messages = array();
 
@@ -55,10 +58,10 @@ if ($email == ""){
    $messages['email'] = "Enter an email";
    $valid = false;
 } else if (preg_match("/\w{1,}@\w{1,}/", $email) === 0){
-   $messages['password'] = "Email must contain '@'";
+   $messages['email'] = "Email must contain '@'";
    $valid = false;
 } else if ($password != $re_password){
-   $messages['password'] = "Email inputs must match";
+   $messages['email'] = "Email inputs must match";
    $valid = false;
 }
 
@@ -80,7 +83,7 @@ if ($account_type == "physician"){
    }
 }
 
-if ($account_type == "physician"){
+if ($account_type == "physician" && $valid){
    $image_path = "none";
    if (isset($_FILE['file_to_upload'])){
       $imagePath = "../images/profiles/$username" . "_" . $_FILES["fileToUpload"]["name"];
@@ -89,7 +92,7 @@ if ($account_type == "physician"){
       }
    }
    $dao->create_physician($username, $password, $email, $country, $first_name, $last_name, $suffix, "none", "none", "none", $image_path);
-} else if ($account_type == "buyer_seller"){
+} else if ($account_type == "buyer_seller" && $valid){
     $image_path = "none";
     if (isset($_FILE['file_to_upload'])){
         $imagePath = "../images/profiles/$username" . "_" . $_FILES["fileToUpload"]["name"];
@@ -108,4 +111,8 @@ if (!$valid) {
    header("Location: sign_up.php");
    exit;
 }
+
+unset($_SESSION['presets']);
+header("Location: index.php");
+exit;
 ?>

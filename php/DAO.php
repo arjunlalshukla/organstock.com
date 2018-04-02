@@ -28,11 +28,21 @@ class DAO {
   
   public function username_is_valid($username){
      $conn = $this->getConnection();
-     $query = $conn->prepare("SELECT SELECT * FROM buyer_seller WHERE username = :username");
+     $query = $conn->prepare("SELECT * FROM buyer_seller WHERE username = :username");
      $query->bindParam(':username', $username);
      $query->execute();
      $result = $query->fetchAll();
      return empty($result);
+  }
+  
+  public function password_is_valid($username, $password) {
+      $conn = $this->getConnection();
+      $query = $conn->prepare("SELECT * FROM buyer_seller WHERE username = :username AND password = :password");
+      $query->bindParam(':username', $username);
+      $query->bindParam(':password', $password);
+      $query->execute();
+      $result = $query->fetchAll();
+      return empty($result);
   }
      
   public function create_buyer_seller ($username, $password, $email, $country, $image_path) {

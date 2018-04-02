@@ -1,0 +1,50 @@
+2018-04-01 23:02:08 - DEBUG --> Established a database connection.
+2018-04-01 23:02:08 - DEBUG --> Established a database connection.
+2018-04-01 23:02:08 - DEBUG --> create_buyer_seller username=[a] password=[a] email=[a@a] country=[Afghanistan] image_path=[none]
+2018-04-01 23:18:13 - DEBUG --> Established a database connection.
+2018-04-01 23:18:13 - DEBUG --> Established a database connection.
+2018-04-01 23:18:13 - DEBUG --> Established a database connection.
+2018-04-01 23:18:13 - DEBUG --> create_buyer_seller username=[b] password=[b] email=[b@b] country=[Afghanistan] image_path=[none]
+2018-04-01 23:18:58 - DEBUG --> Established a database connection.
+2018-04-01 23:18:58 - DEBUG --> Established a database connection.
+2018-04-01 23:18:58 - DEBUG --> Established a database connection.
+2018-04-01 23:18:58 - DEBUG --> create_buyer_seller username=[c] password=[c] email=[c@c] country=[Afghanistan] image_path=[none]
+2018-04-01 23:20:27 - DEBUG --> Established a database connection.
+2018-04-01 23:20:27 - DEBUG --> Established a database connection.
+2018-04-01 23:20:28 - DEBUG --> Established a database connection.
+2018-04-01 23:20:28 - DEBUG --> Established a database connection.
+2018-04-01 23:20:28 - DEBUG --> Established a database connection.
+2018-04-01 23:20:28 - DEBUG --> Established a database connection.
+2018-04-01 23:22:06 - DEBUG --> Established a database connection.
+2018-04-01 23:22:07 - DEBUG --> Established a database connection.
+2018-04-01 23:22:07 - DEBUG --> Established a database connection.
+2018-04-01 23:22:07 - DEBUG --> Established a database connection.
+2018-04-01 23:22:07 - DEBUG --> Established a database connection.
+2018-04-01 23:22:07 - DEBUG --> Established a database connection.
+2018-04-01 23:22:07 - DEBUG --> Established a database connection.
+2018-04-01 23:22:51 - DEBUG --> Established a database connection.
+2018-04-01 23:24:26 - DEBUG --> Established a database connection.
+2018-04-01 23:24:27 - DEBUG --> Established a database connection.
+2018-04-01 23:24:27 - DEBUG --> Established a database connection.
+2018-04-01 23:24:27 - DEBUG --> Established a database connection.
+2018-04-01 23:24:27 - DEBUG --> Established a database connection.
+2018-04-01 23:24:46 - DEBUG --> Established a database connection.
+2018-04-01 23:24:46 - DEBUG --> Established a database connection.
+2018-04-01 23:24:47 - DEBUG --> Established a database connection.
+2018-04-01 23:24:47 - DEBUG --> Established a database connection.
+2018-04-01 23:24:47 - DEBUG --> Established a database connection.
+2018-04-01 23:25:55 - DEBUG --> Established a database connection.
+2018-04-01 23:25:55 - DEBUG --> Established a database connection.
+2018-04-01 23:25:56 - DEBUG --> Established a database connection.
+2018-04-01 23:25:56 - DEBUG --> Established a database connection.
+2018-04-01 23:25:56 - DEBUG --> Established a database connection.
+2018-04-01 23:27:34 - DEBUG --> Established a database connection.
+2018-04-01 23:29:08 - DEBUG --> Established a database connection.
+2018-04-01 23:29:09 - DEBUG --> Established a database connection.
+2018-04-01 23:58:20 - DEBUG --> Established a database connection.
+2018-04-01 23:58:20 - DEBUG --> Established a database connection.
+2018-04-01 23:58:28 - DEBUG --> Established a database connection.
+2018-04-01 23:58:28 - DEBUG --> Established a database connection.
+2018-04-01 23:59:31 - DEBUG --> Established a database connection.
+2018-04-01 23:59:31 - DEBUG --> Established a database connection.
+2018-04-01 23:59:31 - DEBUG --> create_buyer_seller username=[] password=[] email=[] country=[Afghanistan] image_path=[none]
