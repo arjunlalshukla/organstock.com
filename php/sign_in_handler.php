@@ -7,4 +7,22 @@ require_once("./DAO.php");
 $dao = new DAO();
 
 echo '<pre>' . print_r($_POST, 1) . '</pre>';
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+if ($dao->password_is_valid($username, $password)) {
+    $_SESSION["signed_in_username"] = $_POST['username'];
+    echo $username . " , " .  $password . " , " . "accepted";
+    header("Location: index.php");
+    exit;
+} else {
+    $status = "Invalid username or password";
+    $_SESSION["status"] = $status;
+    $_SESSION["username_preset"] = $username;
+    $_SESSION["access_granted"] = false;
+    echo $username . " , " .  $password . " , " . "rejected";
+    header("Location: sign_in.php");
+    exit;
+}
 ?>

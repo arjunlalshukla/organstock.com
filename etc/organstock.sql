@@ -2,6 +2,7 @@ CREATE DATABASE IF NOT EXISTS organstock;
 USE organstock;
 
 CREATE TABLE IF NOT EXISTS buyer_seller (
+   physician INTEGER,
 	username VARCHAR(255),
 	password VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,
@@ -11,6 +12,7 @@ CREATE TABLE IF NOT EXISTS buyer_seller (
 );
 
 CREATE TABLE IF NOT EXISTS physician (
+   physician INTEGER,
 	username VARCHAR(255),
 	password VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,

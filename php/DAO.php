@@ -26,13 +26,26 @@ class DAO {
     }
   }
   
+  private function username_is_physician($username) {
+      $conn = $this->getConnection();
+      $query = $conn->prepare("SELECT * FROM physician WHERE username = :username");
+      $query->bindParam(':username', $username);
+      $query->execute();
+      $result = $query->fetchAll();
+      return !empty($result);
+  }
+  
+  private function username_is_buyer_seller($username) {
+      $conn = $this->getConnection();
+      $query = $conn->prepare("SELECT * FROM buyer_seller WHERE username = :username");
+      $query->bindParam(':username', $username);
+      $query->execute();
+      $result = $query->fetchAll();
+      return !empty($result);
+  }
+  
   public function username_is_valid($username){
-     $conn = $this->getConnection();
-     $query = $conn->prepare("SELECT * FROM buyer_seller WHERE username = :username");
-     $query->bindParam(':username', $username);
-     $query->execute();
-     $result = $query->fetchAll();
-     return empty($result);
+      return !$this->username_is_physician($username) && !$this->username_is_buyer_seller($username);
   }
   
   public function password_is_valid($username, $password) {
@@ -41,13 +54,21 @@ class DAO {
       $query->bindParam(':username', $username);
       $query->bindParam(':password', $password);
       $query->execute();
-      $result = $query->fetchAll();
-      return empty($result);
+      $result_buyer = $query->fetchAll();
+      $conn = $this->getConnection();
+      $query = $conn->prepare("SELECT * FROM physician WHERE username = :username AND password = :password");
+      $query->bindParam(':username', $username);
+      $query->bindParam(':password', $password);
+      $query->execute();
+      $result_physician = $query->fetchAll();
+      return !empty($result_buyer) || !empty($result_physician);
   }
      
   public function create_buyer_seller ($username, $password, $email, $country, $image_path) {
      $conn = $this->getConnection();
-     $query = $conn->prepare("INSERT INTO buyer_seller (username, password, email, country, image_path) VALUES (:username, :password, :email, :country, :image_path)");
+     $query = $conn->prepare("INSERT INTO buyer_seller (physician, username, password, email, country, image_path) VALUES (:physician, :username, :password, :email, :country, :image_path)");
+     $a = 0;
+     $query->bindParam(':physician', $a);
      $query->bindParam(':username', $username);
      $query->bindParam(':password', $password);
      $query->bindParam(':email', $email);
@@ -59,7 +80,9 @@ class DAO {
   
   public function create_physician ($username, $password, $email, $country, $first_name, $last_name, $suffix, $degree, $agency, $license_num, $image_path) {
      $conn = $this->getConnection();
-     $query = $conn->prepare("INSERT INTO buyer_seller (username, password, email, country, first_name, last_name, suffix, degree, agency, license_num, image_path) VALUES (:username, :password, :email, :country, :first_name, :last_name, :suffix, :degree, :agency, :license_num, :image_path)");
+     $query = $conn->prepare("INSERT INTO physician (physician, username, password, email, country, first_name, last_name, suffix, degree, agency, license_num, image_path) VALUES (:physician, :username, :password, :email, :country, :first_name, :last_name, :suffix, :degree, :agency, :license_num, :image_path)");
+     $a = 1;
+     $query->bindParam(':physician', $a);
      $query->bindParam(':username', $username);
      $query->bindParam(':password', $password);
      $query->bindParam(':email', $email);

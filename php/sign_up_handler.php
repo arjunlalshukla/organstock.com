@@ -11,7 +11,7 @@ echo $dao->username_is_valid("a");
 
 echo '<pre>' . print_r($_POST, 1) . '</pre>';
 
-$account_type = $_POST['account_type'];
+$account_type = isset($_POST['account_type']) ? $_POST['account_type'] : "";
 $username = $_POST['username'];
 $password = $_POST['password'];
 $re_password = $_POST['password_again'];
@@ -27,13 +27,13 @@ $suffix = $_POST['suffix'];
 
 $_SESSION['presets'] = $_POST;
 echo '<pre>' . print_r($_SESSION['presets'], 1) . '</pre>';
+echo '<pre>' . print_r($_FILES, 1) . '</pre>';
 $valid = true;
 $messages = array();
 
 if ($username == ""){
    $messages['username'] = "Enter a username";
    $valid = false;
-   echo "foo";
 } else if (preg_match("/\w{1,}/", $username) === 0){
    echo "bar";
    $messages['username'] = "All characters must be letter, number or underscore";
@@ -83,28 +83,39 @@ if ($account_type == "physician"){
    }
 }
 
+if ($account_type != "physician" && $account_type != "buyer_seller") {
+    $messages['account_type'] = "Account type must be either Buyer/Seller or Physician";
+    $valid = false;
+}
+
+if (isset($_FILES['file_to_upload']) && $_FILES['file_to_upload']['error'] == 1){
+    $messages['file'] = "File is too big";
+    $valid = false;
+}
+
 if ($account_type == "physician" && $valid){
    $image_path = "none";
-   if (isset($_FILE['file_to_upload'])){
-      $imagePath = "../images/profiles/$username" . "_" . $_FILES["fileToUpload"]["name"];
-      if (!move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $imagePath)) {
+   if (isset($_FILES['file_to_upload'])){
+      $path = $_FILES["file_to_upload"]["name"];
+      $ext = pathinfo($path, PATHINFO_EXTENSION);
+      $image_path = "../images/profiles/$username" /* . "." . $ext */;
+      if (!move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $image_path)) {
          throw new Exception("File move failed");
       }
    }
    $dao->create_physician($username, $password, $email, $country, $first_name, $last_name, $suffix, "none", "none", "none", $image_path);
 } else if ($account_type == "buyer_seller" && $valid){
     $image_path = "none";
-    if (isset($_FILE['file_to_upload'])){
-        $imagePath = "../images/profiles/$username" . "_" . $_FILES["fileToUpload"]["name"];
-        if (!move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $imagePath)) {
+    if (isset($_FILES['file_to_upload'])){
+        $path = $_FILES["file_to_upload"]["name"];
+        $ext = pathinfo($path, PATHINFO_EXTENSION);
+        $image_path = "../images/profiles/$username" /* . "." . $ext */;
+        if (!move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $image_path)) {
             throw new Exception("File move failed");
         }
     }
     $dao->create_buyer_seller($username, $password, $email, $country, $image_path);
-} else {
-   $messages['account_type'] = "Account type must be either Buyer/Seller or Physician";
-   $valid = false;
-}
+} 
 
 if (!$valid) {
    $_SESSION['messages'] = $messages;

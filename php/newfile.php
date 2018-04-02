@@ -11,4 +11,8 @@ if ($valid)
     echo "valid";
 else
     echo "invalid";
+
+$path = "foo.jpg";
+$ext = pathinfo($path, PATHINFO_EXTENSION);
+echo $ext;
 ?>

@@ -2,9 +2,9 @@
 <?php
 session_start();
 require("small_header.php");
-$presets = $_SESSION['presets'];
+$presets = isset($_SESSION['presets']) ? $_SESSION['presets'] : array();
 //echo "<pre>" . print_r($presets, 1) . "</pre>";
-$messages = $_SESSION['messages'];
+$messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
 //echo "<pre>" . print_r($messages, 1) . "</pre>";
 ?>
 <html>
@@ -18,7 +18,7 @@ $messages = $_SESSION['messages'];
 		<!-- This option will make more stuff appear depending on which
 			radio option is chosen. -->
 			
-		<form action="sign_up_handler.php" method="POST">
+		<form action="sign_up_handler.php" method="POST" enctype="multipart/form-data">
 			<?php if (isset($messages['account_type'])) echo $messages['account_type'];?>
 			<div>Select account type:   
 				<input type="radio" id="account_type" name="account_type" value="buyer_seller" <?php if(isset($presets['account_type']) && $presets['account_type'] == "buyer_seller") echo "checked"?>>Buyer/Seller   
@@ -48,7 +48,8 @@ $messages = $_SESSION['messages'];
    			<?php if (isset($messages['last_name'])) echo $messages['last_name'];?>
    			<div><input value="<?php echo isset($presets['last_name']) && !isset($messages['last_name']) ? $presets['last_name'] : ''; ?>" type="text" placeholder="Last Name" name="last_name"></div>
 	   		<div><input value="<?php echo isset($presets['suffix']) ? $presets['suffix'] : ''; ?>" type="text" placeholder="Suffix" name="suffix"></div>
-	   		Profile picture
+	   		Profile picture <br>
+	   		<?php if (isset($messages['file'])) echo $messages['file'];?>
 	   		<div><input type="file" name="file_to_upload" id="file_to_upload"></div>
 	   	<!--
    		<div><input type="text" placeholder="Degree" name="degree"></div>

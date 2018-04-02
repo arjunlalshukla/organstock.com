@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+session_start();
+?>
 <html>
 <head>
 	<link rel="stylesheet" href="/css/homerow.css">
@@ -10,17 +13,17 @@
 	</ul>
 	<ul id="right">
 		<?php 
-//		if (logged_in){
+		if (isset($_SESSION['signed_in_username'])){
 			$name = "Arjun";
 			echo "<li>Welcome, " . $name . "</li>";
 			echo "<li><a href=\"/php/user.php\">Your Account</a></li>";
 //			Will reload the current page with no account logged in.
-			echo "<li><a href=\"/index.php\">Sign Out</a></li>";
-//		}	
-//		else {
+			echo "<li><a href=\"/php/sign_out_handler.php\">Sign Out</a></li>";
+		}	
+		else {
 			echo "<li><a href=\"/php/sign_in.php\">Sign In</a></li>";
 			echo "<li><a href=\"/php/sign_up.php\">Sign Up</a></li>";
-//		}
+		}
 		?>
 	</ul>
 	</div>
