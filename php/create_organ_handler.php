@@ -41,8 +41,10 @@ if (!in_array($blood_type, $file)){
     $valid = false;
 }
 
-if ($sex != 'M' && $sex != 'F'){
-    $messages['sex'] = "Sex must be M or F";
+$file = file_get_contents("../etc/sexes.dat");
+$file = explode("\n", trim($file));
+if (!in_array($sex, $file)){
+    $messages['sex'] = "Sex is not valid";
     $valid = false;
 }
 
@@ -70,6 +72,11 @@ if (!is_numeric($price)){
     $valid = false;
 }
 
+if (strlen($description) >  65535){
+    $messages['description'] = "Description is too long. Max character count is 65535";
+    $valid = false;
+}
+
 if (isset($_FILES['file_to_upload']) && $_FILES['file_to_upload']['error'] == 1){
     $messages['file'] = "File is too big";
     $valid = false;
@@ -92,6 +99,8 @@ if ($valid){
     }
     $dao->create_organ($_SESSION['user']['username'], $organ_type, $blood_type, $sex, $weight, $dob, $price, $description, $image_path);
 } else {
-    ;
+    $_SESSION['messages'] = $messages;
+    header("Location: create_organ.php");
+    exit;
 }
 

@@ -39,7 +39,8 @@ $messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
 				$file = explode("\n", trim($file));
 				foreach ($file as $line){
 				   $line = trim($line);
-				   echo "<option value=\"$line\">$line</option>";
+				   $selected = isset($presets['country']) && !isset($messages['country']) && $presets['country'] == $line ? 'selected="selected"' : '';
+				   echo "<option value=\"$line\" $selected>$line</option>";
 				}
 				?>
 			</select></div>

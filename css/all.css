@@ -29,7 +29,42 @@ a {
 label.organ {
 	width:120px;
 	display: inline-block;}
+	
+label.sex {
+	width: 50px;
+	display: inline-block;}
+
+label.blood_type {
+	width:50px;
+	display: inline-block;}
 
 table#user_info td {
 	padding: 5px 20px 5px 0px;
+}
+
+table#organ_info td {
+	margin: 20px 0px 20px 0px;
+	padding: 5px 20px 5px 0px;
+}
+
+td.organ_listing_info {
+	padding: 10px;
+}
+
+table.organ_listing_info td{
+	border: 1px solid black;
+}
+
+td.message {
+	padding-left: 10px;
+}
+
+img.organ, img.profile{
+	max-width:300px;
+	max-height:300px:
+}
+
+img.organ_listing {
+	max-width:100px;
+	max-height:100px:
 }

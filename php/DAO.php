@@ -2,11 +2,11 @@
 require_once('./KLogger.php');
 
 class DAO {
-  private $heroku = true;
-  private $host = heroku ? "us-cdbr-iron-east-05.cleardb.net" : "localhost";
-  private $db = heroku ? "heroku_88fc211c7ca17ce" : "organstock";
-  private $user = heroku ? "b8e721f1294c01" : "admin";
-  private $pass = heroku ? "27de2751" : "password";
+  const HEROKU = false;
+  private $host = self::HEROKU ? "us-cdbr-iron-east-05.cleardb.net" : "localhost";
+  private $db = self::HEROKU ? "heroku_88fc211c7ca17ce" : "organstock";
+  private $user = self::HEROKU ? "b8e721f1294c01" : "admin";
+  private $pass = self::HEROKU ? "27de2751" : "password";
   protected $logger;
 
   public function __construct () {
@@ -146,7 +146,7 @@ class DAO {
   
   public function get_organ_info($organ_id){
       $conn = $this->getConnection();
-      $query = $conn->prepare("SELECT * FROM organ WHERE organ_id = :organ_id");
+      $query = $conn->prepare("SELECT * FROM organ WHERE id = :organ_id");
       $query->bindParam(':organ_id', $organ_id);
       $query->execute();
       $result = $query->fetchAll();
@@ -161,7 +161,7 @@ class DAO {
       $query->execute();
       $result = $query->fetchAll();
       if (!empty($result))
-          return $result[0];
+          return $result;
   }
   
   public function organ_get_next_id(){

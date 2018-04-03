@@ -16,8 +16,10 @@ $image_path = $_SESSION['user']['image_path'];
 </head>
 <body><div id="content">
 	<h1><?php echo $username; ?></h1>
-	<img id="profile" src="<?php echo $image_path; ?>" alt="profile picture"><br>
-	<div><button type="button">Upload Photo</button></div><br>
+	<?php 
+	$image_html = $image_path == "none" ? '' : "<img class=\"profile\" src=\"/images/profiles/$username\" alt=\"profile pic\"></a>";
+	echo $image_html;
+	?><br>
 	<table id="user_info">
 		<tr>
 			<td>E-Mail</td>
@@ -27,29 +29,44 @@ $image_path = $_SESSION['user']['image_path'];
 			<td><?php echo $country; ?></td>
 		</tr>
 	</table>
-	<table>
+	<table class="organ_listing_info">
 		<?php
-//		foreach ($dao->user_get_organs($username) as $organ){
+		foreach ($dao->user_get_organs($username) as $organ){
+		    $organ_id = $organ['id'];
+		    $seller = $organ['seller_username'];
+		    $organ_type = $organ['organ_type'];
+		    $blood_type = $organ['blood_type'];
+		    $sex = $organ['sex'];
+		    $dob = $organ['owner_dob'];
+		    $d1 = new DateTime($dob);
+		    $d2 = new DateTime(date("Y-m-d"));
+		    $diff = $d2->diff($d1);
+		    $age = $diff->y;
+		    $weight = $organ['weight'];
+		    $price = $organ['price'];
+		    $description = $organ['description'];
+            $image_html = $organ['image_path'] == "none" ? '' : "<a href=\"/php/organ.php?organ_id=$organ_id\"><div><img class=\"organ_listing\" src=\"/images/organs/$organ_id\" alt=\"organ pic\"></div></a>";
 			echo 
 			"<tr>
-				<td><a href=\"/php/organ.php\"><div><img src=\"/etc/organ_id.png\" alt=\"organ pic\"></div></a></td>
-				<td><a href=\"/php/organ.php\"><div><table>
-					<tr><td><table><tr>
-						<td>Organ type</td>
-						<td>Blood Type: X</td>
-						<td>Sex: X</td>
-						<td>Age: X</td>
-						<td>Weight: X</td>
+				<td>$image_html</td>
+				<td><a href=\"/php/organ.php?organ_id=$organ_id\"><div><table>
+					<tr><td><table class=\"organ_listing_info\"><tr>
+						<td class=\"organ_listing_info\">$organ_type</td>
+						<td class=\"organ_listing_info\">Blood Type: $blood_type</td>
+						<td class=\"organ_listing_info\">Sex: $sex</td>
+						<td class=\"organ_listing_info\">Age: $age</td>
+						<td class=\"organ_listing_info\">Weight: $weight</td>
+						<td class=\"organ_listing_info\">Price: $ $price</td>
 					</tr></table></td></tr>
-					<tr><td>
-						This is the description of the organ. It may be written by brokers for OrganStock or the seller themselves.
+					<tr><td class=\"organ_listing_info\">
+						$description
 					</td></tr>
 				</table></div></a></tr>
 			</tr>";
-//		}
+		}
 		?>
 	</table>
-	<a href="/php/create_organ.php"><button type="button">New Organ</button></a>
+	<a href="/php/create_organ.php"><button type="button">Add Organ</button></a>
 </div></body>
 </html>
 <?php include("footer.php");?>

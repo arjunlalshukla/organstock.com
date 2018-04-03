@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html>
-<?php include("header.php");?>
-<?php include("homerow.php");?>
+<?php
+include("header.php");
+include("homerow.php");
+require_once('./DAO.php');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+// echo "<pre>" . print_r($_GET, 1) . "</pre>";
+$organ_id = $_GET['organ_id'];
+$dao = new DAO();
+$organ = $dao->get_organ_info($organ_id);
+// echo "<pre>" . print_r($organ, 1) . "</pre>";
+$seller = $organ['seller_username'];
+?>
 <head>
-	<Title>Organ Type - ID#</title>
+	<Title><?php echo $organ['id'] . " - " . $seller; ?></title>
 	<link rel="stylesheet" href="/css/all.css">
 </head>
-<body><div id="content"><form action="handler.php" method="POST">
-	<h1>Organ Type - Seller - ID#</h1>
-	<img id="organ" src="/etc/lungs.jpg" alt="organ"><br>
-	<div><button type="button">Upload Photo</button></div><br>
-	<form action="handler.php" method="POST"><div><table>
+<body><div id="content">
+	<h1><?php echo $organ['id'];?></h1>
+
+	<?php ; ?>
+	<?php 
+	$image_html = $organ['image_path'] == "none" ? '' : "<img class=\"organ\" src=\"/images/organs/$organ_id\" alt=\"organ pic\"></a>";
+	echo $image_html;
+	?>
+	<table id="organ_info">
+		<tr>
+			<td>Seller</td>
+			<td><a href="/php/buyer_seller_public.php?username=<?php echo $seller;?>"><?php echo $seller; ?></a></td>
+		</tr>
+		<tr>
+			<td>Organ Type</td>
+			<td><?php echo $organ['organ_type'];?></td>
+		</tr>
 		<tr>
 			<td>Blood Type</td>
-			<td><Select>
-				<option value="op">O+</option>
-				<option value="on">O-</option>
-				<option value="ap">A+</option>
-				<option value="an">A-</option>
-				<option value="bp">B+</option>
-				<option value="bn">B-</option>
-				<option value="abp">AB+</option>
-				<option value="abn">AB-</option>
-			</select></td>
+			<td><?php echo $organ['blood_type'];?></td>
 		</tr>
 		<tr>
 			<td>Sex</td>
-			<td><select>
-				<option value="male">M</option>
-				<option value="female">F</option>
-			</select></td>
+			<td><?php echo $organ['sex'];?></td>
 		</tr>
 		<tr>
 			<td>Weight</td>
-			<td><input type="number" name="weight">
-				<select>
-					<option value="kg">kg</option>
-					<option value="lb">lb</option>
-				</select>
-			</td>
+			<td><?php echo $organ['weight'];?></td>
 		</tr>
 		<tr>
 			<td>Owner D.O.B.</td>
-			<td><input type="date" name="dob"></td>
+			<td><?php echo date("m/d/Y", strtotime($organ['owner_dob']));?></td>
 		</tr>
-	</table></div>
-	Description<br>
-	<textarea rows="6" cols="60"></textarea><br>
-	<input type="submit" value="Submit">
-</form></div></body>
+		<tr>
+			<td>Price</td>
+			<td>$ <?php echo $organ['price'];?></td>
+		</tr>
+	</table><br>
+	Description<br><br>
+	<div id="description"><?php echo $organ['description'];?></div>
+</div></body>
 </html>
 <?php include("footer.php");?>
