@@ -3,18 +3,14 @@ require_once('./KLogger.php');
 
 class DAO {
   private $heroku = true;
-  private $host;
-  private $db;
-  private $user;
-  private $pass;
+  private $host = heroku ? "us-cdbr-iron-east-05.cleardb.net" : "localhost";
+  private $db = heroku ? "heroku_88fc211c7ca17ce" : "organstock";
+  private $user = heroku ? "b8e721f1294c01" : "admin";
+  private $pass = heroku ? "27de2751" : "password";
   protected $logger;
 
   public function __construct () {
     $this->logger = new KLogger('../log', KLogger::DEBUG);
-    $host = $heroku ? "us-cdbr-iron-east-05.cleardb.net" : "localhost";
-    $db = $heroku ? "heroku_88fc211c7ca17ce" : "organstock";
-    $user = $heroku ? "b8e721f1294c01" : "admin";
-    $pass = $heroku ? "27de2751" : "password";
   }
 
   private function getConnection () {
