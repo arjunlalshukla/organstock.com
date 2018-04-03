@@ -12,10 +12,11 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 if ($dao->password_is_valid($username, $password)) {
-    $_SESSION["signed_in_username"] = $_POST['username'];
+//     echo "<pre>" . print_r($dao->get_user_info($username)) . "</pre>";
+    $_SESSION["user"] = $dao->get_user_info($username);
     echo $username . " , " .  $password . " , " . "accepted";
-    header("Location: index.php");
-    exit;
+   header("Location: index.php");
+   exit;
 } else {
     $status = "Invalid username or password";
     $_SESSION["status"] = $status;

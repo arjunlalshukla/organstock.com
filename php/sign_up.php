@@ -38,6 +38,7 @@ $messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
 				$file = file_get_contents("../etc/countries.dat");
 				$file = explode("\n", trim($file));
 				foreach ($file as $line){
+				   $line = trim($line);
 				   echo "<option value=\"$line\">$line</option>";
 				}
 				?>

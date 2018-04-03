@@ -95,7 +95,7 @@ if (isset($_FILES['file_to_upload']) && $_FILES['file_to_upload']['error'] == 1)
 
 if ($account_type == "physician" && $valid){
    $image_path = "none";
-   if (isset($_FILES['file_to_upload'])){
+   if (isset($_FILES['file_to_upload']) && $_FILES['file_to_upload']['error'] == ""){
       $path = $_FILES["file_to_upload"]["name"];
       $ext = pathinfo($path, PATHINFO_EXTENSION);
       $image_path = "../images/profiles/$username" /* . "." . $ext */;
@@ -106,7 +106,7 @@ if ($account_type == "physician" && $valid){
    $dao->create_physician($username, $password, $email, $country, $first_name, $last_name, $suffix, "none", "none", "none", $image_path);
 } else if ($account_type == "buyer_seller" && $valid){
     $image_path = "none";
-    if (isset($_FILES['file_to_upload'])){
+    if (isset($_FILES['file_to_upload']) && $_FILES['file_to_upload']['error'] == ""){
         $path = $_FILES["file_to_upload"]["name"];
         $ext = pathinfo($path, PATHINFO_EXTENSION);
         $image_path = "../images/profiles/$username" /* . "." . $ext */;

@@ -32,8 +32,10 @@ CREATE TABLE IF NOT EXISTS organ (
 	seller_username VARCHAR(255) NOT NULL REFERENCES buyer_seller,
 	organ_type VARCHAR(255) NOT NULL,
 	blood_type VARCHAR(255) NOT NULL,
+	sex VARCHAR(255) NOT NULL,
 	weight INTEGER UNSIGNED NOT NULL,
 	owner_dob DATE NOT NULL,
+	price INTEGER UNSIGNED NOT NULL,
 	description TEXT NOT NULL,
 	image_path VARCHAR(511) NOT NULL,
 

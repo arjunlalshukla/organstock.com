@@ -23,8 +23,13 @@ div {
 	margin:10px 0px 10px 0px}
 
 a {
-	text-decoration:none;}
+	text-decoration:none;
+	color: inherit;}
 
 label.organ {
 	width:120px;
 	display: inline-block;}
+
+table#user_info td {
+	padding: 5px 20px 5px 0px;
+}
