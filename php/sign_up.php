@@ -22,7 +22,9 @@ $messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
 			<?php if (isset($messages['account_type'])) echo $messages['account_type'];?>
 			<div>Select account type:   
 				<input type="radio" id="account_type" name="account_type" value="buyer_seller" <?php if(isset($presets['account_type']) && $presets['account_type'] == "buyer_seller") echo "checked"?>>Buyer/Seller   
+				<?php /*
 				<input type="radio" id="account_type" name="account_type" value="physician" <?php if(isset($presets['account_type']) && $presets['account_type'] == "physician") echo "checked"?>>Physician   
+				*/ ?>
 			</div>
 			<?php if (isset($messages['username'])) echo $messages['username'];?>
 			<div><input value="<?php echo isset($presets['username']) && !isset($messages['username']) ? $presets['username'] : ''; ?>" placeholder="username" type="text" id="username" name="username"></div>

@@ -83,8 +83,8 @@ if ($account_type == "physician"){
    }
 }
 
-if ($account_type != "physician" && $account_type != "buyer_seller") {
-    $messages['account_type'] = "Account type must be either Buyer/Seller or Physician";
+if (/*$account_type != "physician" && */ $account_type != "buyer_seller") {
+    $messages['account_type'] = "Account type must be either Buyer/Seller" /* .  " or Physician" */;
     $valid = false;
 }
 
