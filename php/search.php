@@ -6,6 +6,8 @@ include("header.php");
 include("homerow.php");
 if (isset($_SESSION['messages']))
     $messages = $_SESSION['messages'];
+if (isset($_SESSION['presets']))
+    $presets = $_SESSION['presets'];
 ?>
 <head>
 	<Title>Search</title>

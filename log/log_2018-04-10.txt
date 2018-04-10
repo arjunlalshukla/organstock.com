@@ -1,0 +1,6 @@
+2018-04-10 21:36:42 - CRIT --> The database connection failed.
+2018-04-10 21:37:35 - DEBUG --> Established a database connection.
+2018-04-10 21:38:31 - DEBUG --> Established a database connection.
+2018-04-10 21:44:20 - DEBUG --> Established a database connection.
+2018-04-10 22:06:03 - DEBUG --> Established a database connection.
+2018-04-10 22:06:25 - DEBUG --> Established a database connection.

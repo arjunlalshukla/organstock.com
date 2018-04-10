@@ -98,6 +98,8 @@ if ($valid){
         }
     }
     $dao->create_organ($_SESSION['user']['username'], $organ_type, $blood_type, $sex, $weight, $dob, $price, $description, $image_path);
+    header("Location: buyer_seller_private.php");
+    exit;
 } else {
     $_SESSION['messages'] = $messages;
     header("Location: create_organ.php");
