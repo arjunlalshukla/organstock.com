@@ -11,7 +11,7 @@
 <div id="content">
 	<table><tr>
 		<th>
-			<?php include("directory.php");?>
+			<?php /* include("directory.php"); */?>
 		</th>
 		<th id="separator"></th>
 		<th><div id="info">

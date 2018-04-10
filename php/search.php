@@ -4,7 +4,8 @@
 session_start();
 include("header.php");
 include("homerow.php");
-$messages = $_SESSION['messages'];
+if (isset($_SESSION['messages']))
+    $messages = $_SESSION['messages'];
 ?>
 <head>
 	<Title>Search</title>

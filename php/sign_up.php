@@ -46,12 +46,14 @@ $messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
 				}
 				?>
 			</select></div>
+			<?php /*
 			Additional Physician Information <br>
 			<?php if (isset($messages['first_name'])) echo $messages['first_name'];?>
 			<div><input value="<?php echo isset($presets['first_name']) && !isset($messages['first_name']) ? $presets['first_name'] : ''; ?>" type="text" placeholder="First Name" name="first_name"></div>
    			<?php if (isset($messages['last_name'])) echo $messages['last_name'];?>
    			<div><input value="<?php echo isset($presets['last_name']) && !isset($messages['last_name']) ? $presets['last_name'] : ''; ?>" type="text" placeholder="Last Name" name="last_name"></div>
 	   		<div><input value="<?php echo isset($presets['suffix']) ? $presets['suffix'] : ''; ?>" type="text" placeholder="Suffix" name="suffix"></div>
+	   		*/ ?>
 	   		Profile picture <br>
 	   		<?php if (isset($messages['file'])) echo $messages['file'];?>
 	   		<div><input type="file" name="file_to_upload" id="file_to_upload"></div>
