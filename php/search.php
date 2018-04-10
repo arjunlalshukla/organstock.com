@@ -79,9 +79,9 @@ if (isset($_SESSION['messages']))
 		<div><table>
 			<tr>
 				<td>Weight</td>
-				<td><input type="number" name="weight_low" value="<?php echo isset($presets['weight']) && !isset($messages['weight']) ? $presets['weight_low'] : '';?>">
+				<td><input type="number" name="weight_low" value="<?php echo isset($presets['weight_low']) && !isset($messages['weight']) ? $presets['weight_low'] : '';?>">
 					to
-					<input type="number" name="weight_up" value="<?php echo isset($presets['weight']) && !isset($messages['weight']) ? $presets['weight_up'] : '';?>">
+					<input type="number" name="weight_up" value="<?php echo isset($presets['weight_up']) && !isset($messages['weight']) ? $presets['weight_up'] : '';?>">
 					<select>
 						<option value="kg">kg</option>
 						<option value="lb">lb</option>
@@ -93,9 +93,9 @@ if (isset($_SESSION['messages']))
 			</tr>
 			<tr>
 				<td>Age</td>
-				<td><input type="number" name="age_low" value="<?php echo isset($presets['age']) && !isset($messages['age']) ? $presets['age_low'] : '';?>">
+				<td><input type="number" name="age_low" value="<?php echo isset($presets['age_low']) && !isset($messages['age']) ? $presets['age_low'] : '';?>">
 	             to
-                <input type="number" name="age_up" value="<?php echo isset($presets['age']) && !isset($messages['age']) ? $presets['age_up'] : '';?>">
+                <input type="number" name="age_up" value="<?php echo isset($presets['age_up']) && !isset($messages['age']) ? $presets['age_up'] : '';?>">
 				</td>
 				<td class="message">
 					<?php if (isset($messages['age'])) echo $messages['age'];?>
