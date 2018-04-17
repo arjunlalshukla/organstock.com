@@ -78,5 +78,6 @@ img.organ, img.profile{
 
 img.organ_listing {
 	max-width:100px;
-	max-height:100px:
+	max-height:100px;
+	overflow:hidden;
 }

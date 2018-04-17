@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <?php
-include("header.php");
-include("homerow.php");
+include("./header.php");
+include("./homerow.php");
 require_once('./DAO.php');
+require_once('./functions.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -16,20 +17,15 @@ $seller = $organ['seller_username'];
 ?>
 <head>
 	<Title><?php echo htmlspecialchars($organ['id'] . " - " . $seller); ?></title>
-	<link rel="stylesheet" href="/css/all.css">
+	<link rel="stylesheet" href="../css/all.css">
 </head>
 <body><div id="content">
 	<h1><?php echo htmlspecialchars($organ['id']);?></h1>
-
-	<?php ; ?>
-	<?php 
-	$image_html = $organ['image_path'] == "none" ? '' : "<img class=\"organ\" src=\"/images/organs/$organ_id\" alt=\"organ pic\"></a>";
-	echo htmlspecialchars($image_html);
-	?>
+	<?php show_image("../images/organs/$organ_id")?>
 	<table id="organ_info">
 		<tr>
 			<td>Seller</td>
-			<td><a href="/php/buyer_seller_public.php?username=<?php echo htmlspecialchars($seller);?>"><?php echo htmlspecialchars($seller); ?></a></td>
+			<td><a href="../php/buyer_seller_public.php?username=<?php echo htmlspecialchars($seller);?>"><?php echo htmlspecialchars($seller); ?></a></td>
 		</tr>
 		<tr>
 			<td>Organ Type</td>
@@ -60,4 +56,4 @@ $seller = $organ['seller_username'];
 	<div id="description"><?php echo htmlspecialchars($organ['description']);?></div>
 </div></body>
 </html>
-<?php include("footer.php");?>
+<?php include("./footer.php");?>

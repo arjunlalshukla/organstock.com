@@ -23,7 +23,7 @@ if ($dao->password_is_valid($username, $password)) {
     $_SESSION["username_preset"] = $username;
     $_SESSION["access_granted"] = false;
     echo $username . " , " .  $password . " , " . "rejected";
-    header("Location: sign_in.php");
+    header("Location: ./sign_in.php");
     exit;
 }
 ?>

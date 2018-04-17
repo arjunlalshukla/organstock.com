@@ -60,7 +60,7 @@ if ($email == ""){
 } else if (preg_match("/\w{1,}@\w{1,}/", $email) === 0){
    $messages['email'] = "Email must contain '@'";
    $valid = false;
-} else if ($password != $re_password){
+} else if ($email != $re_email){
    $messages['email'] = "Email inputs must match";
    $valid = false;
 }
@@ -119,11 +119,11 @@ if ($account_type == "physician" && $valid){
 
 if (!$valid) {
    $_SESSION['messages'] = $messages;
-   header("Location: sign_up.php");
+   header("Location: ./sign_up.php");
    exit;
 }
 
 unset($_SESSION['presets']);
-header("Location: index.php");
+header("Location: ./index.php");
 exit;
 ?>

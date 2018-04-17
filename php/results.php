@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once("./DAO.php");
+require_once('./functions.php');
 $dao = new DAO();
 
 $_SESSION['presets'] = $_GET;
@@ -97,54 +98,20 @@ $results = $dao->search_organs($organ_types, $blood_types, $sexes, $weight_low, 
 <!DOCTYPE html>
 <html>
 <?php
-include("header.php");
-include("homerow.php");
+include("./header.php");
+include("./homerow.php");
 require_once('./DAO.php');
 $dao = new DAO();
 ?>
 <head>
 	<title>Search Results</title>
-	<link rel="stylesheet" href="/css/all.css">
+	<link rel="stylesheet" href="../css/all.css">
 </head>
 <body><div id="content">
 	<h1>Search Results</h1>
 	<table class="organ_listing_info">
-		<?php
-		foreach ($results as $organ){
-		    $organ_id = $organ['id'];
-		    $seller = $organ['seller_username'];
-		    $organ_type = $organ['organ_type'];
-		    $blood_type = $organ['blood_type'];
-		    $sex = $organ['sex'];
-		    $dob = $organ['owner_dob'];
-		    $d1 = new DateTime($dob);
-		    $d2 = new DateTime(date("Y-m-d"));
-		    $diff = $d2->diff($d1);
-		    $age = $diff->y;
-		    $weight = $organ['weight'];
-		    $price = $organ['price'];
-		    $description = $organ['description'];
-            $image_html = $organ['image_path'] == "none" ? '' : "<a href=\"/php/organ.php?organ_id=$organ_id\"><div><img class=\"organ_listing\" src=\"/images/organs/$organ_id\" alt=\"organ pic\"></div></a>";
-			echo htmlspecialchars(
-			"<tr>
-				<td>$image_html</td>
-				<td><a href=\"/php/organ.php?organ_id=$organ_id\"><div><table>
-					<tr><td><table class=\"organ_listing_info\"><tr>
-						<td class=\"organ_listing_info\">$organ_type</td>
-						<td class=\"organ_listing_info\">Blood Type: $blood_type</td>
-						<td class=\"organ_listing_info\">Sex: $sex</td>
-						<td class=\"organ_listing_info\">Age: $age</td>
-						<td class=\"organ_listing_info\">Weight: $weight</td>
-						<td class=\"organ_listing_info\">Price: $ $price</td>
-					</tr></table></td></tr>
-					<tr><td class=\"organ_listing_info\">
-						$description
-					</td></tr>
-				</table></div></a></tr>
-			</tr>");
-		}
-		?>
+		<?php show_organ_table($results) ?>
 	</table>
 </div></body>
 </html>
-<?php include("footer.php");?>
+<?php include("./footer.php");?>

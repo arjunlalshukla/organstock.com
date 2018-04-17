@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<?php include("header.php");?>
-<?php include("homerow.php");?>
+<?php include("./header.php");?>
+<?php include("./homerow.php");?>
 <head>
 	<title> Welcome!</title>
-	<link rel="stylesheet" href="/css/all.css">
-	<link rel="stylesheet" href="/css/info.css">
+	<link rel="stylesheet" href="../css/all.css">
+	<link rel="stylesheet" href="../css/info.css">
 </head>
 <body>
 <div id="content">
@@ -29,4 +29,4 @@
 </div>
 </body>
 </html>
-<?php include("footer.php");?>
+<?php include("./footer.php");?>
