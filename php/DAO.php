@@ -2,7 +2,7 @@
 require_once('KLogger.php');
 
 class DAO {
-  const HEROKU = false;
+  const HEROKU = true;
   private $host = self::HEROKU ? "us-cdbr-iron-east-05.cleardb.net" : "localhost";
   private $db = self::HEROKU ? "heroku_88fc211c7ca17ce" : "organstock";
   private $user = self::HEROKU ? "b8e721f1294c01" : "admin";
