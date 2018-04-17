@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <?php
+if (!isset($_SESSION['user'])){
+    http_response_code(403);
+    die('Forbidden');
+}
 include("header.php");
 include("homerow.php");
 ini_set('display_errors', 1);

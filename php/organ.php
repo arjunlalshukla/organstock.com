@@ -15,49 +15,49 @@ $organ = $dao->get_organ_info($organ_id);
 $seller = $organ['seller_username'];
 ?>
 <head>
-	<Title><?php echo $organ['id'] . " - " . $seller; ?></title>
+	<Title><?php echo htmlspecialchars($organ['id'] . " - " . $seller); ?></title>
 	<link rel="stylesheet" href="/css/all.css">
 </head>
 <body><div id="content">
-	<h1><?php echo $organ['id'];?></h1>
+	<h1><?php echo htmlspecialchars($organ['id']);?></h1>
 
 	<?php ; ?>
 	<?php 
 	$image_html = $organ['image_path'] == "none" ? '' : "<img class=\"organ\" src=\"/images/organs/$organ_id\" alt=\"organ pic\"></a>";
-	echo $image_html;
+	echo htmlspecialchars($image_html);
 	?>
 	<table id="organ_info">
 		<tr>
 			<td>Seller</td>
-			<td><a href="/php/buyer_seller_public.php?username=<?php echo $seller;?>"><?php echo $seller; ?></a></td>
+			<td><a href="/php/buyer_seller_public.php?username=<?php echo htmlspecialchars($seller);?>"><?php echo htmlspecialchars($seller); ?></a></td>
 		</tr>
 		<tr>
 			<td>Organ Type</td>
-			<td><?php echo $organ['organ_type'];?></td>
+			<td><?php echo htmlspecialchars($organ['organ_type']);?></td>
 		</tr>
 		<tr>
 			<td>Blood Type</td>
-			<td><?php echo $organ['blood_type'];?></td>
+			<td><?php echo htmlspecialchars($organ['blood_type']);?></td>
 		</tr>
 		<tr>
 			<td>Sex</td>
-			<td><?php echo $organ['sex'];?></td>
+			<td><?php echo htmlspecialchars($organ['sex']);?></td>
 		</tr>
 		<tr>
 			<td>Weight</td>
-			<td><?php echo $organ['weight'];?></td>
+			<td><?php echo htmlspecialchars($organ['weight']);?></td>
 		</tr>
 		<tr>
 			<td>Owner D.O.B.</td>
-			<td><?php echo date("m/d/Y", strtotime($organ['owner_dob']));?></td>
+			<td><?php echo htmlspecialchars(date("m/d/Y", strtotime($organ['owner_dob'])));?></td>
 		</tr>
 		<tr>
 			<td>Price</td>
-			<td>$ <?php echo $organ['price'];?></td>
+			<td>$ <?php echo htmlspecialchars($organ['price']);?></td>
 		</tr>
 	</table><br>
 	Description<br><br>
-	<div id="description"><?php echo $organ['description'];?></div>
+	<div id="description"><?php echo htmlspecialchars($organ['description']);?></div>
 </div></body>
 </html>
 <?php include("footer.php");?>

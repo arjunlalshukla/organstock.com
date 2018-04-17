@@ -2,7 +2,7 @@
 require_once('./KLogger.php');
 
 class DAO {
-  const HEROKU = true;
+  const HEROKU = false;
   private $host = self::HEROKU ? "us-cdbr-iron-east-05.cleardb.net" : "localhost";
   private $db = self::HEROKU ? "heroku_88fc211c7ca17ce" : "organstock";
   private $user = self::HEROKU ? "b8e721f1294c01" : "admin";
@@ -66,6 +66,8 @@ class DAO {
   }
   
   public function password_is_valid($username, $password) {
+      $salt = '23efeaeat34tq3argafd';
+      $password = md5($password . $salt);
       $conn = $this->getConnection();
       $query = $conn->prepare("SELECT * FROM buyer_seller WHERE username = :username AND password = :password");
       $query->bindParam(':username', $username);
@@ -82,6 +84,8 @@ class DAO {
   }
      
   public function create_buyer_seller ($username, $password, $email, $country, $image_path) {
+     $salt = '23efeaeat34tq3argafd';
+     $password = md5($password . $salt);
      $conn = $this->getConnection();
      $query = $conn->prepare("INSERT INTO buyer_seller (physician, username, password, email, country, image_path) VALUES (:physician, :username, :password, :email, :country, :image_path)");
      $a = 0;
@@ -96,6 +100,8 @@ class DAO {
   }
   
   public function create_physician ($username, $password, $email, $country, $first_name, $last_name, $suffix, $degree, $agency, $license_num, $image_path) {
+     $salt = '23efeaeat34tq3argafd';
+     $password = md5($password . $salt);
      $conn = $this->getConnection();
      $query = $conn->prepare("INSERT INTO physician (physician, username, password, email, country, first_name, last_name, suffix, degree, agency, license_num, image_path) VALUES (:physician, :username, :password, :email, :country, :first_name, :last_name, :suffix, :degree, :agency, :license_num, :image_path)");
      $a = 1;

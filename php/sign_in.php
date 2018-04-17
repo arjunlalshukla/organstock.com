@@ -15,15 +15,16 @@ if (isset($_SESSION['username_preset'])) {
 <html>
 <head>
 	<title>Sign In - OrganStock</title>
-	<link rel="stylesheet" href="/css/sign_in.css">
 	<link rel="stylesheet" href="/css/all.css">
+	<script type="text/javascript" src="../js/jquery-3.3.1.slim.min.js"></script>
+	<script type="text/javascript" src="../js/error_messages.js"></script>
 </head>
 <body>
 	<div id="content">
 		<?php
         if (isset($_SESSION["status"])) {
-            echo "<div id=\"status\">" .  $_SESSION["status"] . "</div>";
-        unset($_SESSION["status"]);
+            echo '<div id="sign_in_status" class="message">' . $_SESSION["status"] . "<button type='button' class='close'>X</button>" . "</div>";
+            unset($_SESSION["status"]);
         }
         ?>
 		<form action="sign_in_handler.php" method="POST">

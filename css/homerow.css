@@ -1,6 +1,5 @@
 ul {
 	list-style-type: none;
-	font-family:Helvetica;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;}
@@ -20,10 +19,18 @@ li {
 
 li a {
 	display: block;
-	color: white;
 	text-align: center;
 	padding: 10px 16px;
 	text-decoration:none;}
 
 li a:hover {
 	background-color: #333333;}
+
+.current_page {
+	color: black;
+	background-color:#e5e8e8;
+}
+
+.not_current_page {
+	color: white;
+}

@@ -1,5 +1,5 @@
-html {
-	font-family: Helvetica;
+html *{
+	font-family: 'Yatra One', Helvetica;
 }
 
 body {
@@ -25,6 +25,10 @@ div {
 a {
 	text-decoration:none;
 	color: inherit;}
+	
+#sign_in_status {
+	margin: auto;
+}
 
 label.organ {
 	width:120px;
@@ -55,8 +59,16 @@ table.organ_listing_info td{
 	border: 1px solid black;
 }
 
-td.message {
-	padding-left: 10px;
+.message {
+	display: table;
+	margin: 5px 0px 5px 0px;
+	padding: 5px;
+	background-color: #e60000;
+	color: white;
+}
+
+.close {
+	margin-left: 10px;
 }
 
 img.organ, img.profile{

@@ -125,7 +125,7 @@ $dao = new DAO();
 		    $price = $organ['price'];
 		    $description = $organ['description'];
             $image_html = $organ['image_path'] == "none" ? '' : "<a href=\"/php/organ.php?organ_id=$organ_id\"><div><img class=\"organ_listing\" src=\"/images/organs/$organ_id\" alt=\"organ pic\"></div></a>";
-			echo 
+			echo htmlspecialchars(
 			"<tr>
 				<td>$image_html</td>
 				<td><a href=\"/php/organ.php?organ_id=$organ_id\"><div><table>
@@ -141,7 +141,7 @@ $dao = new DAO();
 						$description
 					</td></tr>
 				</table></div></a></tr>
-			</tr>";
+			</tr>");
 		}
 		?>
 	</table>

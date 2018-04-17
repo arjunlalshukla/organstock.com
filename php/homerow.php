@@ -11,7 +11,7 @@ if (session_status() == PHP_SESSION_NONE) {
 </head>
 <body>
 	<div id="bar"><ul id="left">
-		<li><a href="/php/search.php">Search</a></li>
+		<li <?php echo basename($_SERVER['PHP_SELF']) == "search.php" ? 'class="current_page"' : 'class="not_current_page"' ;?>><a href="/php/search.php">Search</a></li>
 	</ul>
 	<ul id="right">
 		<?php 
@@ -20,13 +20,13 @@ if (session_status() == PHP_SESSION_NONE) {
 		    $username = $_SESSION['user']['username'];
 		    $name = "Arjun";
 		    echo "<li>Welcome, " . $name . "</li>";
-		    echo "<li><a href=\"/php/private.php\">Your Account</a></li>";
+		    echo "<li " . (basename($_SERVER['PHP_SELF']) == "buyer_seller_private.php" || basename($_SERVER['PHP_SELF']) == "physician_private.php" ? 'class="current_page"' : 'class="not_current_page"' ) . "><a href=\"/php/private.php\">Your Account</a></li>";
 		    //			Will reload the current page with no account logged in.
-		    echo "<li><a href=\"/php/sign_out_handler.php\">Sign Out</a></li>";
+		    echo "<li class=\"not_current_page\" ><a href=\"/php/sign_out_handler.php\">Sign Out</a></li>";
 		}	
 		else {
-			echo "<li><a href=\"/php/sign_in.php\">Sign In</a></li>";
-			echo "<li><a href=\"/php/sign_up.php\">Sign Up</a></li>";
+			echo "<li class=\"not_current_page\" ><a href=\"/php/sign_in.php\">Sign In</a></li>";
+			echo "<li class=\"not_current_page\" ><a href=\"/php/sign_up.php\">Sign Up</a></li>";
 		}
 		?>
 	</ul>

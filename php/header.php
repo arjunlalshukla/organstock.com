@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" href="/css/all.css">
 	<link rel="stylesheet" href="/css/header.css">
+	<link href='https://fonts.googleapis.com/css?family=Yatra One' rel='stylesheet'>
 </head>
 <body>
 	<div id="header_bloc">

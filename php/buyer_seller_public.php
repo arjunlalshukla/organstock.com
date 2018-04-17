@@ -12,22 +12,22 @@ $country = $user['country'];
 $image_path = $user['image_path'];
 ?>
 <head>
-	<title><?php echo $username; ?></title>
+	<title><?php echo htmlspecialchars($username); ?></title>
 	<link rel="stylesheet" href="/css/all.css">
 </head>
 <body><div id="content">
-	<h1><?php echo $username; ?></h1>
+	<h1><?php echo htmlspecialchars($username); ?></h1>
 	<?php 
 	$image_html = $image_path == "none" ? '' : "<img class=\"profile\" src=\"/images/profiles/$username\" alt=\"profile pic\"></a>";
-	echo $image_html;
+	echo htmlspecialchars($image_html);
 	?><br>
 	<table id="user_info">
 		<tr>
 			<td>E-Mail</td>
-			<td><?php echo $email; ?></td>
+			<td><?php echo htmlspecialchars($email); ?></td>
 		<tr>
 			<td>Country</td>
-			<td><?php echo $country; ?></td>
+			<td><?php echo htmlspecialchars($country); ?></td>
 		</tr>
 	</table>
 	<table class="organ_listing_info">
@@ -47,7 +47,7 @@ $image_path = $user['image_path'];
 		    $price = $organ['price'];
 		    $description = $organ['description'];
             $image_html = $organ['image_path'] == "none" ? '' : "<a href=\"/php/organ.php?organ_id=$organ_id\"><div><img class=\"organ_listing\" src=\"/images/organs/$organ_id\" alt=\"organ pic\"></div></a>";
-			echo 
+            echo htmlspecialchars(
 			"<tr>
 				<td>$image_html</td>
 				<td><a href=\"/php/organ.php?organ_id=$organ_id\"><div><table>
@@ -63,7 +63,7 @@ $image_path = $user['image_path'];
 						$description
 					</td></tr>
 				</table></div></a></tr>
-			</tr>";
+			</tr>");
 		}
 		?>
 	</table>
