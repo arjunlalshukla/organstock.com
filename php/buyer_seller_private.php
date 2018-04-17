@@ -6,10 +6,10 @@ if (!isset($_SESSION['user'])){
     http_response_code(403);
     die('Forbidden');
 }
-include("./header.php");
-include("./homerow.php");
-require_once('./functions.php');
-require_once('./DAO.php');
+require("header.php");
+require("homerow.php");
+require_once('functions.php');
+require_once('DAO.php');
 $dao = new DAO();
 $username = $_SESSION['user']['username'];
 $email = $_SESSION['user']['email'];
@@ -38,4 +38,4 @@ $image_path = $_SESSION['user']['image_path'];
 	<a href="./create_organ.php"><button type="button">Add Organ</button></a>
 </div></body>
 </html>
-<?php include("./footer.php");?>
+<?php require("footer.php");?>

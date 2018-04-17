@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <?php
-include("./header.php");
-include("./homerow.php");
-require_once('./DAO.php');
-require_once('./functions.php');
+require("header.php");
+require("homerow.php");
+require_once('DAO.php');
+require_once('functions.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -56,4 +56,4 @@ $seller = $organ['seller_username'];
 	<div id="description"><?php echo htmlspecialchars($organ['description']);?></div>
 </div></body>
 </html>
-<?php include("./footer.php");?>
+<?php require("footer.php");?>

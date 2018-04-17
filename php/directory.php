@@ -6,9 +6,9 @@
 <body>
 	<div id="directory">
 		<ul>
-			<li><a href="../php/starting.php">Getting Started</a></li>
-			<li><a href="../php/ethics.php">Ethics and Legal</a></li>
-			<li><a href="../php/guide.php">Organ Selection Guide</a></li>
+			<li><a href="./starting.php">Getting Started</a></li>
+			<li><a href="./ethics.php">Ethics and Legal</a></li>
+			<li><a href="./guide.php">Organ Selection Guide</a></li>
 		</ul>
 	</div>
 </body>

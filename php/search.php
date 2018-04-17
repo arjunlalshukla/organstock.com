@@ -2,9 +2,9 @@
 <html>
 <?php 
 session_start();
-include("header.php");
-include("homerow.php");
-require_once('./functions.php');
+require("header.php");
+require("homerow.php");
+require_once('functions.php');
 $messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
 $presets = isset($_SESSION['presets']) ? $_SESSION['presets'] : array();
 ?>
@@ -73,3 +73,4 @@ $presets = isset($_SESSION['presets']) ? $_SESSION['presets'] : array();
 	</form>
 </div></body>
 </html>
+<?php require('footer.php')?>

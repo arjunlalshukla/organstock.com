@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
 session_start();
-require("./small_header.php");
-require_once('./functions.php');
+require("small_header.php");
+require_once('functions.php');
 $presets = isset($_SESSION['presets']) ? $_SESSION['presets'] : array();
 //echo "<pre>" . print_r($presets, 1) . "</pre>";
 $messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
@@ -69,4 +69,4 @@ $messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
 	</div>
 </body>
 </html>
-<?php include("./footer.php");?>
+<?php require("footer.php");?>

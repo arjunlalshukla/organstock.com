@@ -3,8 +3,8 @@ session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require_once("./DAO.php");
-require_once('./functions.php');
+require_once("DAO.php");
+require_once('functions.php');
 $dao = new DAO();
 
 $_SESSION['presets'] = $_GET;
@@ -98,8 +98,8 @@ $results = $dao->search_organs($organ_types, $blood_types, $sexes, $weight_low, 
 <!DOCTYPE html>
 <html>
 <?php
-include("./header.php");
-include("./homerow.php");
+require("header.php");
+require("homerow.php");
 require_once('./DAO.php');
 $dao = new DAO();
 ?>
@@ -114,4 +114,4 @@ $dao = new DAO();
 	</table>
 </div></body>
 </html>
-<?php include("./footer.php");?>
+<?php require("footer.php");?>

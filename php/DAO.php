@@ -1,5 +1,5 @@
 <?php
-require_once('./KLogger.php');
+require_once('KLogger.php');
 
 class DAO {
   const HEROKU = false;

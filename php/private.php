@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('./DAO.php');
+require_once('DAO.php');
 $dao = new DAO();
 if ($dao->get_user_info($_SESSION['user']['physician']) == 1){
     echo "<pre>" . print_r($_SESSION['user'], 1) . "</pre>";

@@ -6,8 +6,8 @@ if (!isset($_SESSION['user'])){
     http_response_code(403);
     die('Forbidden');
 }
-include("./header.php");
-include("./homerow.php");
+require("header.php");
+require("homerow.php");
 require_once('./functions.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -75,4 +75,4 @@ $messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
 	<input type="submit" value="Submit">
 </form></div></body>
 </html>
-<?php include("./footer.php");?>
+<?php require("footer.php");?>

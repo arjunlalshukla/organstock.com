@@ -4,7 +4,7 @@ session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require_once("./DAO.php");
+require_once("DAO.php");
 $dao = new DAO();
 
 echo $dao->username_is_valid("a");
@@ -119,11 +119,11 @@ if ($account_type == "physician" && $valid){
 
 if (!$valid) {
    $_SESSION['messages'] = $messages;
-   header("Location: ./sign_up.php");
+   header("Location: sign_up.php");
    exit;
 }
 
 unset($_SESSION['presets']);
-header("Location: ./index.php");
+header("Location: index.php");
 exit;
 ?>

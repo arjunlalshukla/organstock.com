@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
-include("small_header.php");
-require_once ('./functions.php');
+require("small_header.php");
+require_once ('functions.php');
 session_start();
 if (isset($_SESSION["user"])) {
     header("Location: ./index.php");
@@ -27,4 +27,4 @@ $username = isset($_SESSION['username_preset']) ? $_SESSION['username_preset'] :
 	</div>
 </body>
 </html>
-<?php include("./footer.php");?>
+<?php require("footer.php");?>

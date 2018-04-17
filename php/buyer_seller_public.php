@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <?php
-include("./header.php");
-include("./homerow.php");
-require_once('./functions.php');
-require_once('./DAO.php');
+require("header.php");
+require("homerow.php");
+require_once('functions.php');
+require_once('DAO.php');
 $dao = new DAO();
 $username = $_GET['username'];
 $user = $dao->get_user_info($username);
@@ -33,5 +33,5 @@ $image_path = $user['image_path'];
 	</table>
 </div></body>
 </html>
-<?php include("./footer.php");?>
+<?php require("footer.php");?>
 
