@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<?php include("./header.php");?>
-<?php include("./homerow.php");?>
+<?php require("./header.php");?>
+<?php require("./homerow.php");?>
 <head>
 	<title> Welcome!</title>
 	<link rel="stylesheet" href="../css/all.css">
@@ -29,4 +29,4 @@
 </div>
 </body>
 </html>
-<?php include("./footer.php");?>
+<?php require("./footer.php");?>
